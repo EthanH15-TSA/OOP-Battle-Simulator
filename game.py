@@ -15,6 +15,7 @@ def main():
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
 
+    total_damage_dealt = 0
     # Battle Loop 
     while hero.is_alive() and any(goblin.is_alive() for goblin in goblins):
         print("\nNew Round!")
@@ -24,6 +25,8 @@ def main():
         damage = hero.strike()
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
+        total_damage_dealt += int(damage)
+        
 
         # Check if the target goblin was defeated
         if not target_goblin.is_alive():
@@ -42,9 +45,12 @@ def main():
         print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
-
+    
+    print(f"\nBattle Summary:" + "\nTotal Damage: " + total_damage_dealt)
     # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
+
+    
 
 if __name__ == "__main__":
     main()
