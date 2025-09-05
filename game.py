@@ -1,6 +1,7 @@
 import random
 from goblin import Goblin
 from hero import Hero
+from boss import King
 
 def main():
     print("Welcome to the Battle Arena!")
@@ -9,9 +10,9 @@ def main():
     # Create a hero
     hero = Hero("Aragorn")
 
-    # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
+    # Create goblins and king ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
     goblins = [Goblin(f"Goblin {i+1}", "green") for i in range(3)]
-
+    goblin_king = King("Goblin King")
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
 
@@ -42,9 +43,9 @@ def main():
                 damage = goblin.attack()
                 print(f"{goblin.name} attacks hero for {damage} damage!")
                 hero.receive_damage(damage)
+   
+    
 
-    if hero.is_alive():
-        
 
 
     # Determine outcome
@@ -53,7 +54,15 @@ def main():
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
         rounds_survived -= 1
-    
+
+    #boss battle
+    print("BOSS TIME!!!")
+    while hero.is_alive() and King:
+        damage = hero.strike
+        goblin_king.take_damage(damage):
+        if goblin_king.is_alive()
+            goblin_king.intimidation():
+
     print(f"\nBattle Summary:" + "\nTotal Damage Dealt: "+ str(total_damage_dealt) + "\nRounds Survived: " + str(rounds_survived))
     # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
