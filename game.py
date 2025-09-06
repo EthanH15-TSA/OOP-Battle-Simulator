@@ -57,11 +57,11 @@ def main():
 
     #boss battle
     print("BOSS TIME!!!")
-    while hero.is_alive() and King:
-        damage = hero.strike
-        goblin_king.take_damage(damage):
-        if goblin_king.is_alive()
-            goblin_king.intimidation():
+    while hero.is_alive() and goblin_king.is_alive():
+        damage = hero.strike()
+        goblin_king.take_damage(damage)
+        if goblin_king.is_alive():
+            goblin_king.intimidation()
 
     print(f"\nBattle Summary:" + "\nTotal Damage Dealt: "+ str(total_damage_dealt) + "\nRounds Survived: " + str(rounds_survived))
     # Final tally of goblins defeated
