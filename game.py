@@ -59,9 +59,17 @@ def main():
     print("BOSS TIME!!!")
     while hero.is_alive() and goblin_king.is_alive():
         damage = hero.strike()
+        total_damage_dealt += damage
         goblin_king.take_damage(damage)
         if goblin_king.is_alive():
             goblin_king.intimidation()
+            damage = goblin_king.attack()
+            print(f"Goblin King attacks for {damage} damage")
+            hero.receive_damage(damage)
+        else:
+            print("YOU HAVE DEFEATED THE KING")
+        if not(hero.is_alive()):
+            print("YOU HAVE BEEN ANNIHILATED")
 
     print(f"\nBattle Summary:" + "\nTotal Damage Dealt: "+ str(total_damage_dealt) + "\nRounds Survived: " + str(rounds_survived))
     # Final tally of goblins defeated

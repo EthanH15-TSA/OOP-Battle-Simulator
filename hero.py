@@ -23,7 +23,7 @@ class Hero:
         crit_chance = random.randint(1, 10)
         if crit_chance == 1:
             print("Critical Hit!!!!")
-            return 500
+            return 150
         else:
             return random.randint(1, self.attack_power)
     
